@@ -12,7 +12,7 @@ SRC_PATHS = [str(path) for path in (ROOT_DIR / "src").rglob("*.py")]
 TESTS_PATHS = [str(path) for path in (ROOT_DIR / "tests").rglob("*.py")]
 
 FILE_PATHS = USER_REPLACE_PATHS + SRC_PATHS + TESTS_PATHS + ["Makefile"]
-DIR_PATHS = [str(ROOT_DIR / "src" / "template_python")]
+DIR_PATHS = [str(ROOT_DIR / "src" / "template_farm")]
 
 OS = "windows-based" if os.name == "nt" else "unix-based"
 PYTHON_VER = "3.10"
@@ -163,9 +163,9 @@ def main() -> int:
 
     # Rename file contents, names, and directories
     print("Renaming files and directories...")
-    rename_files("template-python", ROOT_DIR.name, FILE_PATHS, [])
+    rename_files("template-farm", ROOT_DIR.name, FILE_PATHS, [])
     rename_files(
-        "template_python",
+        "template_farm",
         ROOT_DIR.name.replace("-", "_"),
         FILE_PATHS,
         DIR_PATHS,

@@ -6,7 +6,7 @@ from pathlib import Path
 from time import time
 from typing import Callable, ParamSpec, TypeVar
 
-from template_python.path import LOGS_DIR
+from template_farm.path import LOGS_DIR
 
 # Define TypeVars and ParamSpecs
 R = TypeVar("R")
@@ -49,23 +49,6 @@ def init_logger(file_name: str) -> None:
 
     # Print path to log file
     logging.info(f"Path to log file: {log_file.resolve()}")
-
-
-# Define function to check if a log file already exists and ask user whether to overwrite it
-def check_log_file_name(log_file_name: str) -> None:
-    """Check if the given log_file_name exists and ask the user whether to overwrite it.
-
-    Args:
-        log_file_name (str): The name of the log file.
-    """
-    user_input = (
-        input(f"{log_file_name=!r} already exists, overwrite? y/n (n): ") or "n"
-    )
-    if user_input != "y":
-        raise SystemExit(
-            "exiting not to overwrite, please use a different log_file_name"
-        )
-    print("")
 
 
 # Define a decorator function to print the execution time of a function

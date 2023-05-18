@@ -2,14 +2,14 @@
 
 <!-- Provide information on your repository here. -->
 
-template-python
+template-farm
 
 <!-- <img src=./style/repo.png width="800"> -->
 
 &nbsp;
 
-![Tests](https://github.com/oedokumaci/template-python/actions/workflows/tests.yml/badge.svg)
-![Quality](https://github.com/oedokumaci/template-python/actions/workflows/quality.yml/badge.svg)
+![Tests](https://github.com/oedokumaci/template-farm/actions/workflows/tests.yml/badge.svg)
+![Quality](https://github.com/oedokumaci/template-farm/actions/workflows/quality.yml/badge.svg)
 [![pdm-managed](https://img.shields.io/badge/pdm-managed-blueviolet)](https://pdm.fming.dev)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 ![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)
@@ -28,33 +28,27 @@ template-python
 
 ## Installation
 
-Pip installing the package from PyPI is not yet available. Instead, download [from this link](https://github.com/oedokumaci/template-python/archive/refs/heads/main.zip) and unzip. You will also need to change the folder name from template-python-main to template-python (or cd into template-python-main in step 2 below). Alternatively, if you have git installed, simply run 
+Pip installing the package from PyPI is not yet available. Instead, download [from this link](https://github.com/oedokumaci/template-farm/archive/refs/heads/main.zip) and unzip. You will also need to change the folder name from template-farm-main to template-farm (or cd into template-farm-main in step 2 below). Alternatively, if you have git installed, simply run 
 ```bash
-git clone https://github.com/oedokumaci/template-python
+git clone https://github.com/oedokumaci/template-farm
 ```
 to install the package locally. After downloading, here are the steps to install the dependencies in a virtual environment using [PDM]:
 
 1. `pip install pdm`
-2. `cd template-python`
+2. `cd template-farm`
 3. `pdm install --prod`
 
 ## Usage
 
-### Configuration
-
-First edit the `./config/config.yaml` to your liking. Example config files can be found at `./config/`.
-
 ### Quick Start
 
-After configuring the `./config/config.yaml`, simply run the following command in the project directory.
+To run the program, simply run
 ```bash
-pdm run python -m template_python
+pdm run python -m template_farm
 ```
-
-### Detailed Usage
-For a list of all the CLI arguments and options, run
+This will start the server on an available port and open the browser to the home page. You can also specify the port number with the `--port` option. For example, to start the server on port 5000, run
 ```bash
-pdm run python -m template_python --help
+pdm run python -m template_farm --port 5000
 ```
 
 &nbsp;

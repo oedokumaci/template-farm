@@ -2,11 +2,10 @@ import logging
 from typing import Generator
 
 import pytest
-from _pytest.monkeypatch import MonkeyPatch
 from pytest import LogCaptureFixture
 
-from template_python.path import LOGS_DIR
-from template_python.utils import check_log_file_name, timer_decorator
+from template_farm.path import LOGS_DIR
+from template_farm.utils import timer_decorator
 
 
 @pytest.mark.parametrize(
@@ -51,45 +50,6 @@ def test_init_logger(
 
     # Assert that the correct logs were produced
     assert caplog.record_tuples[-1] == ("root", level, msg)
-
-
-def test_check_log_file_name_overwrite_yes(monkeypatch: MonkeyPatch) -> None:
-    """Test if the function allows overwriting when user inputs y.
-
-    This test function checks if the check_log_file_name function correctly allows
-    overwriting when the user inputs y. The function takes the monkeypatch fixture,
-    which is used to monkeypatch the input function.
-
-    Args:
-        monkeypatch (MonkeyPatch): The monkeypatch fixture.
-
-    Returns:
-        None
-    """
-    log_file_name = "test.log"
-    monkeypatch.setattr("builtins.input", lambda _: "y")
-    check_log_file_name(log_file_name)
-    monkeypatch.undo()
-
-
-def test_check_log_file_name_overwrite_no(monkeypatch: MonkeyPatch) -> None:
-    """Test if the function raises SystemExit when user inputs n.
-
-    This test function checks if the check_log_file_name function correctly raises
-    SystemExit when the user inputs n. The function takes the monkeypatch fixture,
-    which is used to monkeypatch the input function.
-
-    Args:
-        monkeypatch (MonkeyPatch): The monkeypatch fixture.
-
-    Returns:
-        None
-    """
-    log_file_name = "test.log"
-    monkeypatch.setattr("builtins.input", lambda _: "n")
-    with pytest.raises(SystemExit):
-        check_log_file_name(log_file_name)
-    monkeypatch.undo()
 
 
 def test_timer_decorator(

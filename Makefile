@@ -36,10 +36,7 @@ else
 endif
 
 run:  ## Run project
-	pdm run python -m template_python main
-
-project-help:  ## Show project help
-	pdm run python -m template_python --help
+	pdm run python -m template_farm
 
 test: clean  ## Run tests
 	pdm run pytest tests -v
@@ -52,12 +49,12 @@ ifeq ($(OS),Windows_NT)
 	del /q logs\pytest_test.log || true
 	rmdir /s /q .mypy_cache || true
 	rmdir /s /q .pytest_cache || true
-	rmdir /s /q src\template_python\__pycache__ || true
+	rmdir /s /q src\template_farm\__pycache__ || true
 	rmdir /s /q tests\__pycache__ || true
 else
 	rm -f logs/pytest_test.log
 	rm -rf .mypy_cache
 	rm -rf .pytest_cache
-	rm -rf src/template_python/__pycache__
+	rm -rf src/template_farm/__pycache__
 	rm -rf tests/__pycache__
 endif

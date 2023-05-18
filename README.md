@@ -1,9 +1,9 @@
 <div align="center">
 
-This is a template Python repository to start a fresh project with a default setup.
+This is a template Python repository to start a fresh Web development project with a default FARM stack.
 
-![Tests](https://github.com/oedokumaci/template-python/actions/workflows/tests.yml/badge.svg)
-![Quality](https://github.com/oedokumaci/template-python/actions/workflows/quality.yml/badge.svg)
+![Tests](https://github.com/oedokumaci/template-farm/actions/workflows/tests.yml/badge.svg)
+![Quality](https://github.com/oedokumaci/template-farm/actions/workflows/quality.yml/badge.svg)
 [![pdm-managed](https://img.shields.io/badge/pdm-managed-blueviolet)](https://pdm.fming.dev)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 ![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)
@@ -15,6 +15,9 @@ The project setup includes:
 
 - Python >= 3.10
 - Ubuntu, MacOS, Windows latest OS versions
+- [FastAPI](https://fastapi.tiangolo.com/) for backend
+- [React](https://reactjs.org/) for frontend
+- [MongoDB](https://www.mongodb.com/) for database
 - [PDM](https://pdm.fming.dev/latest/) for dependency management
 - [GitHub Actions](https://github.com/features/actions) and [pre-commit](https://pre-commit.com/) for linting, formatting, CI/CD
   - [Black](https://black.readthedocs.io/en/stable/#) for code formatting
@@ -29,7 +32,7 @@ The project setup includes:
 ```zsh
 brew install python@3.10
 ```
-2. Click on the `Use this template` button [at this page](https://github.com/oedokumaci/template-python) to create a new repository from this template (you must be logged in to GitHub to see the button).
+2. Click on the `Use this template` button [at this page](https://github.com/oedokumaci/template-farm) to create a new repository from this template (you must be logged in to GitHub to see the button).
 3. Name your repository and click `Create repository from template`. If the repository name is more than one word, make sure to use -hyphens- instead of spaces or underscores.
 4. Git clone the repository to your local machine.
 5. Cd into the repository directory.
