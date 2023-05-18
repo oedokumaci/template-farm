@@ -197,11 +197,25 @@ def main() -> int:
     # Generate .vscode/settings.json
     generate_vscode_settings()
 
-    # Remove template setup file
+    # Remove farmstack.png and template setup file
     try:
         if OS == "windows-based":
+            subprocess.run(
+                [
+                    "del",
+                    f"{Path(__file__).parent.expanduser() / 'style' / 'farmstack.png'}",
+                ],
+                check=True,
+            )
             subprocess.run(["del", f"{Path(__file__).name}"], check=True)
         else:
+            subprocess.run(
+                [
+                    "rm",
+                    f"{Path(__file__).parent.expanduser() / 'style' / 'farmstack.png'}",
+                ],
+                check=True,
+            )
             subprocess.run(["rm", f"{Path(__file__).name}"], check=True)
     except subprocess.CalledProcessError:
         pass

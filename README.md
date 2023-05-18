@@ -2,6 +2,8 @@
 
 This is a template Python repository to start a fresh Web development project with a default FARM stack.
 
+<img src=./style/farmstack.png width="300">
+
 ![Tests](https://github.com/oedokumaci/template-farm/actions/workflows/tests.yml/badge.svg)
 ![Quality](https://github.com/oedokumaci/template-farm/actions/workflows/quality.yml/badge.svg)
 [![pdm-managed](https://img.shields.io/badge/pdm-managed-blueviolet)](https://pdm.fming.dev)
