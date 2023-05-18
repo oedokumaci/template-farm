@@ -1,6 +1,7 @@
 """Module for utility functions."""
 
 import logging
+import socket
 from time import time
 from typing import Callable, ParamSpec, TypeVar
 
@@ -45,3 +46,25 @@ def timer_decorator(func: Callable[P, R]) -> Callable[P, R]:
         return result
 
     return wrapper
+
+
+def find_available_port(start_port: int, end_port: int) -> int:
+    """Find an available port between the specified range.
+
+    Args:
+        start_port (int): The start port of the range.
+        end_port (int): The end port of the range.
+
+    Returns:
+        int: An available port number.
+    """
+    for port in range(start_port, end_port + 1):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+            try:
+                sock.bind(("0.0.0.0", port))
+                return port
+            except OSError:
+                pass
+    raise RuntimeError(
+        f"No available ports found in between {start_port} and {end_port}"
+    )
