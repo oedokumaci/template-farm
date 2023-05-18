@@ -1,54 +1,12 @@
 """Module for utility functions."""
 
 import logging
-import sys
-from pathlib import Path
 from time import time
 from typing import Callable, ParamSpec, TypeVar
-
-from template_farm.path import LOGS_DIR
 
 # Define TypeVars and ParamSpecs
 R = TypeVar("R")
 P = ParamSpec("P")
-
-
-# Define function to initialize the logger
-def init_logger(file_name: str) -> None:
-    """Initialize the logger.
-
-    Args:
-        file_name (str): The name of the log file.
-    """
-    # Set the log file path and delete the file if it already exists
-    log_file: Path = LOGS_DIR / file_name
-    log_file.unlink(missing_ok=True)
-    log_file.touch()
-
-    # Set the log formatter and handler levels
-    log_formatter = logging.Formatter("%(asctime)s:%(levelname)s: %(message)s")
-    log_formatter.datefmt = "%Y-%m-%d %H:%M:%S"
-
-    log_handler = logging.FileHandler(str(log_file))
-    log_handler.setFormatter(log_formatter)
-    log_handler.setLevel(logging.INFO)
-
-    std_log_handler = logging.StreamHandler(sys.stdout)
-    std_log_handler.setFormatter(log_formatter)
-    std_log_handler.setLevel(logging.DEBUG)
-
-    # Add handlers to the logger and set logging level
-    logger = logging.getLogger()
-    logger.addHandler(std_log_handler)
-    logger.addHandler(log_handler)
-    logger.setLevel(logging.DEBUG)
-
-    # Set library logging level to error
-    for key in logging.Logger.manager.loggerDict:
-        logging.getLogger(key).setLevel(logging.ERROR)
-
-    # Print path to log file
-    logging.info(f"Path to log file: {log_file.resolve()}")
 
 
 # Define a decorator function to print the execution time of a function
